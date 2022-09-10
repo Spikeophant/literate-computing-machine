@@ -1,0 +1,25 @@
+{
+  "name": "literate-computing-machine",
+  "version": "1.0.0",
+  "description": "A team info page generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spikeophant/literate-computing-machine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.4"},
+  "devDependencies": {
+    "jest": "^29.0.2"
+  },
+  "bugs": {
+    "url": "https://github.com/Spikeophant/literate-computing-machine/issues"
+  },
+  "homepage": "https://github.com/Spikeophant/literate-computing-machine#readme"
+}
