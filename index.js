@@ -5,6 +5,7 @@ const inquirer = require('inquirer');
 const questions = require('./lib/questions');
 //bottom bar to remind us what we're doing.
 
-const ui = new inquirer.ui.BottomBar();
-
+//initialize Team variable to use throughout, and to use
+// to build our resulting HTML.
+let employees = [];
 
