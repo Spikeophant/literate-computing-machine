@@ -6,5 +6,6 @@ describe('Manager', () => {
     expect(manager.employeeID).toEqual('123');
     expect(manager.email).toEqual('manager@company.com');
     expect(manager.office).toEqual('34');
+    expect(manager.role).toEqual('manager')
   })
 })

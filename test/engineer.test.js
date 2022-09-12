@@ -6,5 +6,6 @@ describe('Engineer', () => {
     expect(engineer.employeeID).toEqual('1');
     expect(engineer.email).toEqual('engineer1@company.com');
     expect(engineer.github).toEqual('engineer1');
+    expect(engineer.role).toEqual('engineer');
   })
 })
