@@ -1,2 +1,0 @@
-const Manager = require('../index');
-
