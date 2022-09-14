@@ -42,6 +42,10 @@ const buildTeam = () => {
     )
 }
 
+const buildHTMLfromJSON = json => {
+
+}
+
 const writeFile = () => {
   return console.log(employees);
 }
