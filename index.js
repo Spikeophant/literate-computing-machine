@@ -4,8 +4,8 @@ const Intern = require('./lib/intern')
 const inquirer = require('inquirer');
 const questions = require('./lib/questions');
 const fs = require('fs');
-
-//bottom bar to remind us what we're doing.
+const teamTemplate = require('./src/teamTemplate');
+const htmlBlock = require('./src/employeeHTMLBlockTemplate');
 
 //initialize Team variable to use throughout, and to use
 // to build our resulting HTML.
@@ -42,14 +42,23 @@ const buildTeam = () => {
 }
 
 
-const writeFile = () => {
-  return console.log(employees);
+const writeFile = (arr) => {
+  let htmlString = '';
+  for (const i in arr) {
+    if (arr[i].getRole() === 'manager') {
+      htmlString += htmlBlock.managerHTML(arr[i]);
+    } else if (arr[i].getRole() == 'engineer') {
+      htmlString += htmlBlock.engineerHTML(arr[i]);
+    } else if (arr[i].getRole() == 'intern') {
+      htmlString += htmlBlock.internHTML(arr[i]);
+    }
+  }
+  htmlString = teamTemplate(htmlString);
+  return(console.log(htmlString));
 }
 
 
 buildTeam()
   .then(addTeam)
-    .then(employees => {
-      return writeFile(employees);
-    })
+    .then(employees => writeFile(employees))
   .catch(err => console.log(err));1

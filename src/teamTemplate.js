@@ -37,4 +37,4 @@ const baseTemplate = string => `<!-- https://www.bootdey.com/snippets/view/simpl
 </body>
 </html>`;
 
-module.exports = baseTemplate();
+module.exports = baseTemplate;
