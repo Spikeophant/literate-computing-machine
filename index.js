@@ -10,7 +10,7 @@ const htmlBlock = require('./src/employeeHTMLBlockTemplate');
 //initialize Team variable to use throughout, and to use
 // to build our resulting HTML.
 let employees = [];
-// start the team build here.
+// Add team members here.
 const addTeam = () => {
   return inquirer.prompt(questions.engQuestions)
     .then(answers => {
@@ -21,7 +21,6 @@ const addTeam = () => {
           const employee = new Intern(answers.name, answers.id, answers.email, answers.school);
           employees.push(employee);
         } else {
-          console.log(answers);
           const employee = new Engineer(answers.name, answers.id, answers.email, answers.github);
           employees.push(employee);
         }
@@ -30,7 +29,7 @@ const addTeam = () => {
     })
     .catch(err => console.log(err));
 }
-
+// start build, always start with a manager.
 const buildTeam = () => {
   return inquirer.prompt(questions.managerQuestions)
     .then(answers => {
@@ -41,7 +40,7 @@ const buildTeam = () => {
     )
 }
 
-
+// write output.  takes array of objects.
 const writeFile = (arr) => {
   let htmlString = '';
   for (const i in arr) {
@@ -60,11 +59,15 @@ const writeFile = (arr) => {
   }
   fs.writeFileSync('./dist/team.html', htmlString);
   fs.copyFileSync('./src/teamTemplate.css', './dist/teamTemplate.css');
-
-  return(console.log(htmlString));
 }
 
 
+//do the chained promise calls here.
+//this concept was really hard for me to understand.
+//the functions return immediately if called, do not resolve first.
+//then I get a bunch of promise pendings.  If I .then them togeher
+//it waits for the prior promise to complete, and THEN passes whatever data down to the next.
+//I've really been struggling with this so this exercise was great for this.
 buildTeam()
   .then(addTeam)
     .then(employees => writeFile(employees))
