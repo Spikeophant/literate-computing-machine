@@ -54,6 +54,13 @@ const writeFile = (arr) => {
     }
   }
   htmlString = teamTemplate(htmlString);
+
+  if (!fs.existsSync('./dist')) {
+    fs.mkdirSync('./dist')
+  }
+  fs.writeFileSync('./dist/team.html', htmlString);
+  fs.copyFileSync('./src/teamTemplate.css', './dist/teamTemplate.css');
+
   return(console.log(htmlString));
 }
 
