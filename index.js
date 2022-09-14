@@ -3,6 +3,7 @@ const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern')
 const inquirer = require('inquirer');
 const questions = require('./lib/questions');
+const fs = require('fs');
 //bottom bar to remind us what we're doing.
 
 //initialize Team variable to use throughout, and to use
