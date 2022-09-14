@@ -47,9 +47,9 @@ const writeFile = (arr) => {
   for (const i in arr) {
     if (arr[i].getRole() === 'manager') {
       htmlString += htmlBlock.managerHTML(arr[i]);
-    } else if (arr[i].getRole() == 'engineer') {
+    } else if (arr[i].getRole() === 'engineer') {
       htmlString += htmlBlock.engineerHTML(arr[i]);
-    } else if (arr[i].getRole() == 'intern') {
+    } else if (arr[i].getRole() === 'intern') {
       htmlString += htmlBlock.internHTML(arr[i]);
     }
   }
@@ -61,4 +61,4 @@ const writeFile = (arr) => {
 buildTeam()
   .then(addTeam)
     .then(employees => writeFile(employees))
-  .catch(err => console.log(err));1
+  .catch(err => console.log(err));
